@@ -21,6 +21,11 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src/**/*",
+    "craco.config.js"
+  ],
+  "extends": "./tsconfig.extend.json",
+  "typeRoots": [
+    "src/types"
   ]
 }

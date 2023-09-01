@@ -25,7 +25,7 @@ const BubbleWrap = ({ message }: { message: Message }) => {
   const [tab, setTab] = useState<boolean>(true);
   return <BubbleWrapContainer >
     <ProfileWrap>
-      <ProfileImg src={`http://${process.env.REACT_APP_API_URL}${message.senderProfileImageUrl}`} alt={message.sender} />
+      <ProfileImg src={`https://${process.env.REACT_APP_API_URL}${message.senderProfileImageUrl}`} alt={message.sender} />
       <ProfileName>{message.sender}</ProfileName>
     </ProfileWrap>
     <ContentWrap>

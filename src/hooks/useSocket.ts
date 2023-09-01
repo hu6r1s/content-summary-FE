@@ -13,7 +13,6 @@ export default function useSocket() {
 
   const onMessage = useRecoilCallback(({ set }) => (event: MessageEvent) => {
     let message = JSON.parse(event.data);
-    console.log(message);
 
     if (message.type === "DATA") {
       set(State.messages, message.messages);

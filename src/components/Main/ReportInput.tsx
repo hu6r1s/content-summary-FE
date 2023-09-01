@@ -28,7 +28,6 @@ const ReportInput = () => {
           onClick={() => {
             sendInput(text);
             setText("")
-            console.log(text)
           }}
         >요약하기</Button>
       </div>

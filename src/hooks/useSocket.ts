@@ -14,6 +14,10 @@ export default function useSocket() {
   const onMessage = useRecoilCallback(({ set }) => (event: MessageEvent) => {
     let message = JSON.parse(event.data);
     console.log(message);
+
+    if (message.type === "DATA") {
+      set(State.messages, message.messages);
+    }
   });
 
   const onCloseOrError = useRecoilCallback(
@@ -40,7 +44,7 @@ export default function useSocket() {
           text: "",
         })
       );
-    }, 5000);
+    }, 20000);
     webSocket.addEventListener("close", onCloseOrError);
     webSocket.addEventListener("error", onCloseOrError);
     webSocket.addEventListener("message", onMessage);
@@ -73,7 +77,6 @@ export default function useSocket() {
   const sendMessage = useCallback(
     (message: Message) => {
       const webSocket = getOrCreateSocket();
-
       const sendJoinMessage = () => {
         webSocket.send(JSON.stringify(message));
       };
@@ -96,7 +99,23 @@ export default function useSocket() {
     [getOrCreateSocket]
   );
 
+  const sendInput = useCallback(
+    (inputText: string) => {
+      if (!inputText) {
+        return;
+      }
+
+      sendMessage({
+        type: "DATA",
+        text: inputText,
+      });
+    },
+    [sendMessage]
+  );
+
   return {
     webSocket,
+    sendInput,
+    messages,
   };
 }

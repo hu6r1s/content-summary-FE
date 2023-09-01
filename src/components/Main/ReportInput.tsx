@@ -1,7 +1,14 @@
-import React from 'react';
-import { ReportWrap, TitleWrap, Title, SubTitle, TextArea, Button } from "@styles/Main";
+import useSocket from "@hooks/useSocket";
+import { Button, ReportWrap, SubTitle, TextArea, Title, TitleWrap } from "@styles/Main";
+import { ChangeEvent, useState } from "react";
 
 const ReportInput = () => {
+  const [text, setText] = useState<string>("");
+
+  const {
+    sendInput
+  } = useSocket();
+
   return (
     <ReportWrap>
       <TitleWrap>
@@ -12,8 +19,18 @@ const ReportInput = () => {
         </SubTitle>
       </TitleWrap>
       <div>
-        <TextArea placeholder="이곳에 붙여넣어 주세요." />
-        <Button>요약하기</Button>
+        <TextArea
+          onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setText(event.target.value)}
+          placeholder="이곳에 붙여넣어 주세요."
+          value={text}
+        />
+        <Button
+          onClick={() => {
+            sendInput(text);
+            setText("")
+            console.log(text)
+          }}
+        >요약하기</Button>
       </div>
     </ReportWrap>
   );

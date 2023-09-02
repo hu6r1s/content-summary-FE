@@ -37,6 +37,7 @@ export const NavMenu = styled.div<NavMenuProps>`
 export const ReportWrap = styled.div`
   border-left: 1px #f6f6f6 solid;
   padding-left: 15px;
+  width: 770px;
 `;
 
 export const TitleWrap = styled.div`
@@ -48,7 +49,8 @@ export const Title = styled.div`
   font-weight: 700;
   font-size: 18px;
   line-height: 20.27px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  color: #3e3e3e;
 `;
 
 export const SubTitle = styled.div`
@@ -58,7 +60,7 @@ export const SubTitle = styled.div`
 `;
 
 export const TextArea = styled.textarea`
-  width: 710px !important;
+  width: 750px;
   height: 200px;
   border-radius: 10px;
   border: 1px solid #efefef;
@@ -82,7 +84,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Button = styled.button`
-  width: 710px;
+  width: 750px;
   height: 45px;
   border-radius: 10px;
   background-color: #ffb049;
@@ -134,7 +136,7 @@ export const ContentWrap = styled.div`
   border-radius: 10px;
   background-color: #f6f6f6;
   padding: 15px;
-  margin-top: 15px;
+  margin-top: 12px;
 `;
 
 export const ContentTitle = styled.div`
@@ -152,7 +154,11 @@ export const Content = styled.div`
   line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
-  margin-top: 10px;
   max-width: 710px;
   color: #3e3e3e;
+
+  ul {
+    margin: 0;
+    padding: 0 20px;
+  }
 `;

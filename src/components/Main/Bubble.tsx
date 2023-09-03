@@ -29,7 +29,7 @@ const BubbleWrap = ({ message }: { message: Message }) => {
       <ProfileName>{message.sender}</ProfileName>
     </ProfileWrap>
     <ContentWrap>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", marginBottom: "7px" }}>
         <ContentTitle
           onClick={() => { setTab(true) }}
           style={{ color: tab ? "#636363" : "#B7B7B7" }}
